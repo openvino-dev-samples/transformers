@@ -116,6 +116,8 @@ class DynamicLayer(CacheLayerMixin):
         if self.keys is None:
             self.keys = key_states
             self.values = value_states
+            self.is_initialized = True
+
         else:
             self.keys = torch.cat([self.keys, key_states], dim=-2)
             self.values = torch.cat([self.values, value_states], dim=-2)
